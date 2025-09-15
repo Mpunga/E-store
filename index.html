@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>E-Store — E-Services Apps</title>
+    <meta name="description" content="E-Store by E-Services — Téléchargez les apps éducatives (E-Chimie...) | blanc • bleu-chimie • rouge" />
+    <meta property="og:title" content="E-Store — E-Services Apps" />
+    <meta property="og:description" content="Téléchargez E-Chimie et d'autres apps éducatives. SHA256 vérifiable pour chaque APK." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/logo.png" />
+
+    <!-- CSS séparé -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Polices (optionnel, utilisable si tu veux) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Structured data (JSON-LD minimal) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "E-Store - E-Services",
+            "url": "https://TON-USERNAME.github.io/TON-REPO/"
+        }
+    </script>
+</head>
+
+<body class="page">
+
+    <!-- Accessible skip-link -->
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <!-- NAVIGATION PRINCIPALE -->
+    <header class="site-header" role="banner">
+        <nav class="nav container" aria-label="Navigation principale">
+            <div class="brand">
+                <img src="assets/logo.png" alt="Logo E-Services" width="40" height="40" class="nav-logo" />
+                <a href="index.html" class="brand-link">E-Services</a>
+            </div>
+            <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <ul id="site-nav" class="nav-links" role="menubar">
+                <li role="none"><a role="menuitem" href="#apps">Applications</a></li>
+                <li role="none"><a role="menuitem" href="#features">Fonctionnalités</a></li>
+                <li role="none"><a role="menuitem" href="apropos.html">À propos</a></li>
+                <li role="none"><a role="menuitem" href="#security">Sécurité</a></li>
+            </ul>
+        </nav>
+        <!-- BARRE DE CHOIX DE CATÉGORIE -->
+        <nav class="category-bar container" aria-label="Choix de catégorie">
+            <ul class="category-list">
+                <li><button class="category-btn" data-category="chimie">E-Chimie</button></li>
+                <li><button class="category-btn" data-category="physique">E-Physique</button></li>
+                <li><button class="category-btn" data-category="math">E-Math</button></li>
+                <li><button class="category-btn" data-category="biologie">E-Biologie</button></li>
+                <li><button class="category-btn" data-category="autres">Autres</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <main id="main">
+        <section class="hero container improved-hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title">🛍️ Présentation de E‑Store</h1>
+                <div class="hero-description">
+                    <p><strong>E‑Store</strong> est la vitrine officielle des applications éducatives développées par E‑Service, une initiative numérique au service des élèves et enseignants de la RDC.</p>
+                    <p><strong>Notre objectif :</strong> offrir un accès simple, sécurisé et gratuit à des outils pédagogiques modernes, conçus pour accompagner la préparation aux examens d’État.</p>
+                    <p>Chaque application disponible sur E‑Store (comme <strong>E‑Chimie</strong>, et bientôt <strong>E‑Physique</strong>, <strong>E‑Math</strong>, <strong>E‑Biologie</strong>) est pensée pour répondre aux exigences du programme national,
+                        tout en intégrant des fonctionnalités interactives, des quiz, des fiches synthétiques et des calculateurs intelligents.</p>
+                    <p>📲 <strong>Téléchargez, apprenez, progressez</strong> — avec E‑Store, l’éducation devient plus accessible, plus mobile, et plus connectée à vos besoins.</p>
+                </div>
+                <div class="hero-ctas">
+                    <a class="btn btn-primary" href="#apps">Voir les apps</a>
+                    <a class="btn btn-ghost" href="https://github.com/TON-USERNAME/TON-REPO">Repo GitHub</a>
+                </div>
+            </div>
+            <figure class="hero-figure" style="display: flex; justify-content: center; align-items: center; margin: 0;">
+                <img loading="lazy" src="assets/e-store.png" alt="Aperçu E-Chimie" class="hero-img">
+            </figure e>
+        </section>
+    </main>
+
+    <!-- FEATURES -->
+    <section id="features" class="features container" aria-labelledby="features-title">
+        <h2 id="features-title">Pourquoi E-Store ?</h2>
+        <div class="grid features-grid">
+            <article class="card" aria-labelledby="f1">
+                <h3 id="f1">🔒 Intégrité & sécurité</h3>
+                <p>Chaque APK fourni a un <strong>SHA256</strong> public pour vérification — signe que le fichier est authentique.</p>
+            </article>
+            <article class="card" aria-labelledby="f2">
+                <h3 id="f2">⚡ Téléchargement direct</h3>
+                <p>Les APK sont hébergés sur Google Drive (liens directs). Tu peux révoquer les liens à tout moment.</p>
+            </article>
+            <article class="card" aria-labelledby="f3">
+                <h3 id="f3">📱 Simple à maintenir</h3>
+            </article>
+        </div>
+    </section>
+
+    <!-- APPS LIST -->
+    <section id="apps" class="apps container" aria-labelledby="apps-title">
+        <h2 id="apps-title">📱 Nos applications</h2>
+        <p class="muted">Clique sur une app pour voir les détails, le SHA256 et le lien de téléchargement.</p>
+
+        <div id="apps-grid" class="grid apps-grid" role="list">
+            <!-- Exemple de cartes APK -->
+            <div class="app-card" data-category="chimie">
+                <div class="app-meta">
+                    <h3 class="app-name">E-Chimie</h3>
+                    <p class="app-desc">Application pour réviser la chimie, quiz interactifs, fiches, calculs et plus.</p>
+                    <div class="app-actions">
+                        <a href="#" class="btn btn-primary">Télécharger APK</a>
+                    </div>
+                </div>
+                <img src="assets/" alt="E-Chimie" class="app-thumb" />
+            </div>
+            <div class="app-card" data-category="physique">
+                <div class="app-meta">
+                    <h3 class="app-name">E-Physique</h3>
+                    <p class="app-desc">Bientôt disponible : exercices, quiz et outils pour la physique.</p>
+                    <div class="app-actions">
+                        <a href="#" class="btn btn-primary">Télécharger APK</a>
+                    </div>
+                </div>
+                <img src="assets/logo.png" alt="E-Physique" class="app-thumb" />
+            </div>
+            <div class="app-card" data-category="math">
+                <div class="app-meta">
+                    <h3 class="app-name">E-Math</h3>
+                    <p class="app-desc">Bientôt disponible : calculatrices, quiz et fiches pour les maths.</p>
+                    <div class="app-actions">
+                        <a href="#" class="btn btn-primary">Télécharger APK</a>
+                    </div>
+                </div>
+                <img src="assets/logo.png" alt="E-Math" class="app-thumb" />
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY SUMMARY -->
+    <section id="security" class="security container" aria-labelledby="sec-title">
+        <h2 id="sec-title">🔐 Sécurité — vérification SHA256</h2>
+        <p>Vérifie le SHA256 après téléchargement pour t'assurer que l'APK n'a pas été modifié.</p>
+
+        <div class="hash-table-wrap">
+            <table class="hash-table" aria-describedby="sec-title">
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>SHA256</th>
+                        <th>Dernière maj</th>
+                    </tr>
+                </thead>
+                <tbody id="hash-table-body">
+                    <!-- Injecté via JS -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div>
+                <h4>📦 E-Services</h4>
+                <p>Apps éducatives & outils pro — Kinshasa, RDC</p>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:emmanuelmpunga.23@gmail.com">emmanuelmpunga.23@gmail.com</a></p>
+                <p>WhatsApp: <a href="https://wa.me/243998154323">+243 998 154 323</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 E-Services — Tous droits réservés.</div>
+    </footer>
+
+    <!-- Modal fiche application -->
+    <div id="app-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content" role="document">
+            <button id="modal-close" class="modal-close" aria-label="Fermer la fenêtre">✕</button>
+            <div id="modal-body">
+                <!-- injecté -->
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT: données + logique -->
+    <script src="apps.js"></script>
+</body>
+
+</html>
