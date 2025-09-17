@@ -19,6 +19,9 @@
                 <a href="index.html">Accueil</a>
                 <a href="apropos.html" class="active">À propos</a>
             </div>
+                <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    &#9776;
+                </button>
         </nav>
     </header>
 
@@ -42,18 +45,38 @@
                 <li>Communauté — collaboration avec enseignants et élèves</li>
             </ul>
         </section>
+         <!-- Formulaire d'avis utilisateur -->
+    <section class="contact-section">
+        <h3>Donnez votre avis sur l'application</h3>
+    <form class="contact-form" autocomplete="off" action="mailto:emmanuelmpunga.23@gmail.com" method="POST" enctype="text/plain">
+            <input type="text" name="nom" placeholder="Votre nom" required class="contact-input">
+            <input type="email" name="email" placeholder="Votre email" required class="contact-input">
+            <textarea name="message" rows="4" placeholder="Votre avis ou suggestion..." required class="contact-input"></textarea>
+            <button type="submit" class="footer-btn footer-btn-blue contact-btn">Envoyer l'avis</button>
+        </form>
+    </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <h4>Contact</h4>
-                <p>Email: <a href="mailto:emmanuelmpunga.23@gmail.com">emmanuelmpunga.23@gmail.com</a></p>
-                <p>WhatsApp: <a href="https://wa.me/243998154323">0998 154 323</a></p>
-            </div>
+        
+    <div class="container footer-grid single-column-footer">
+        <div>
+            <h4>Contact</h4>
+            <p>Email: <a href="mailto:emmanuelmpunga.23@gmail.com" class="footer-btn footer-btn-blue">emmanuelmpunga.23@gmail.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/243998154323" class="footer-btn footer-btn-green">0998 154 323</a></p>
         </div>
-        <div class="footer-bottom">© 2025 E-Services</div>
+    </div>
+       <div class="footer-bottom">© 2025 E-Services — Tous droits réservés.</div>
     </footer>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', function () {
+            navLinks.classList.toggle('open');
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+        });
+    </script>
 </body>
 
 </html>
