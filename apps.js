@@ -21,7 +21,7 @@ var apps = [{
         category: "physique",
         desc: "Formulaires et calculs (mécanique, électricité, optique), conversions d’unités, quiz Exetat et fiches synthétiques.",
         img: "assets/logo physique 3.jpg",
-        link: "https://drive.google.com/file/d/1K3dbYg76sRK1H0FvsJRXMu1rb49aK3dC/view?usp=drive_link",
+        link: "https://drive.google.com/file/d/1K3dbYg76sRK1H0FvsJRXMu1rb49aK3dC/view?usp=sharing",
         sha: "",
         updated: "2025-09-21",
         rating: "4.5 (980)"
