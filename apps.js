@@ -4,7 +4,7 @@
  * - sha: SHA256 calculé localement et collé ici
  * - updated: date ISO ou friendly
  */
-const apps = [{
+var apps = [{
         id: "e-chimie",
         name: "E-Chimie",
         category: "chimie",
@@ -29,73 +29,78 @@ const apps = [{
 ];
 
 /* --- Utils DOM --- */
-const appsGrid = document.getElementById('apps-grid');
-const modal = document.getElementById('app-modal');
-const modalBody = document.getElementById('modal-body');
-const modalClose = document.getElementById('modal-close');
+var appsGrid = document.getElementById('apps-grid');
+var modal = document.getElementById('app-modal');
+var modalBody = document.getElementById('modal-body');
+var modalClose = document.getElementById('modal-close');
 
 function createAppCard(app) {
-    const card = document.createElement('article');
+    var card = document.createElement('article');
     card.className = 'app-card';
     card.setAttribute('role', 'listitem');
-    if (app.category) card.dataset.category = app.category;
-    card.innerHTML = `
-        <img src="${app.img}" alt="Aperçu ${app.name}" loading="lazy" class="w-full h-40 object-cover">
-        <div class="p-4">
-            <h3 class="text-lg font-bold mb-2">${app.name}</h3>
-            <p class="text-sm text-gray-600 mb-2">${app.desc}</p>
-            <div class="flex items-center mb-2">
-                <span class="rating">★★★★★</span>
-                <span class="text-sm text-gray-600 ml-2">${app.rating}</span>
-            </div>
-            <div class="flex space-x-2">
-                <button class="install-btn w-full" onclick="window.open('${app.link}', '_blank')">Installer</button>
-                <button class="details-btn w-full" data-app="${app.id}">Détails</button>
-            </div>
-        </div>
-    `;
+    if (app.category) card.setAttribute('data-category', app.category);
+    var imgSrc = encodeURI(app.img);
+    var html = '' +
+        '<img src="' + imgSrc + '" alt="Aperçu ' + app.name + '" loading="lazy" class="w-full h-40 object-cover">' +
+        '<div class="p-4">' +
+        '  <h3 class="text-lg font-bold mb-2">' + app.name + '</h3>' +
+        '  <p class="text-sm text-gray-600 mb-2">' + app.desc + '</p>' +
+        '  <div class="flex items-center mb-2">' +
+        '    <span class="rating">★★★★★</span>' +
+        '    <span class="text-sm text-gray-600 ml-2">' + (app.rating || '') + '</span>' +
+        '  </div>' +
+        '  <div class="flex space-x-2">' +
+        '    <a class="install-btn w-full text-center" href="' + app.link + '" target="_blank" rel="noopener noreferrer">Installer</a>' +
+        '    <button class="details-btn w-full" data-app="' + app.id + '">Détails</button>' +
+        '  </div>' +
+        '</div>';
+    card.innerHTML = html;
     return card;
 }
 
 function populate() {
     if (!appsGrid) return;
-    apps.forEach(app => {
-        appsGrid.appendChild(createAppCard(app));
-    });
-
+    for (var i = 0; i < apps.length; i++) {
+        appsGrid.appendChild(createAppCard(apps[i]));
+    }
     // Add event listeners for details buttons
-    document.querySelectorAll('.details-btn').forEach(btn => {
-        btn.addEventListener('click', e => {
-            const id = e.currentTarget.dataset.app;
-            const app = apps.find(a => a.id === id);
-            if (app) openModal(app);
+    var buttons = document.querySelectorAll('.details-btn');
+    for (var j = 0; j < buttons.length; j++) {
+        buttons[j].addEventListener('click', function(e) {
+            var id = this.getAttribute('data-app');
+            for (var k = 0; k < apps.length; k++) {
+                if (apps[k].id === id) {
+                    openModal(apps[k]);
+                    break;
+                }
+            }
         });
-    });
+    }
 }
 
 function openModal(app) {
     if (!modal || !modalBody) return;
-    modalBody.innerHTML = `
-        <h2 class="text-xl font-bold mb-3">${app.name}</h2>
-        <p class="text-gray-600 mb-4">${app.desc}</p>
-        <img src="${app.img}" alt="Screenshot ${app.name}" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-        <dl class="grid grid-cols-2 gap-2 mb-4">
-            <dt class="font-semibold">SHA256</dt><dd><code class="text-sm">${app.sha || 'Non fourni'}</code></dd>
-            <dt class="font-semibold">Lien</dt><dd><a href="${app.link}" target="_blank" rel="noopener noreferrer" class="text-blue-600">${app.link}</a></dd>
-            <dt class="font-semibold">Mise à jour</dt><dd>${app.updated || '—'}</dd>
-            <dt class="font-semibold">Évaluation</dt><dd>${app.rating}</dd>
-        </dl>
-        <div class="flex space-x-2">
-            <a class="install-btn w-full text-center" href="${app.link}" target="_blank" rel="noopener noreferrer" download>Installer</a>
-            <button id="verify-btn" class="details-btn w-full">Vérifier SHA256</button>
-        </div>
-    `;
+    var html = '' +
+        '<h2 class="text-xl font-bold mb-3">' + app.name + '</h2>' +
+        '<p class="text-gray-600 mb-4">' + app.desc + '</p>' +
+        '<img src="' + encodeURI(app.img) + '" alt="Screenshot ' + app.name + '" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">' +
+        '<dl class="grid grid-cols-2 gap-2 mb-4">' +
+        '  <dt class="font-semibold">SHA256</dt><dd><code class="text-sm">' + (app.sha || 'Non fourni') + '</code></dd>' +
+        '  <dt class="font-semibold">Lien</dt><dd><a href="' + app.link + '" target="_blank" rel="noopener noreferrer" class="text-blue-600">' + app.link + '</a></dd>' +
+        '  <dt class="font-semibold">Mise à jour</dt><dd>' + (app.updated || '—') + '</dd>' +
+        '  <dt class="font-semibold">Évaluation</dt><dd>' + (app.rating || '') + '</dd>' +
+        '</dl>' +
+        '<div class="flex space-x-2">' +
+        '  <a class="install-btn w-full text-center" href="' + app.link + '" target="_blank" rel="noopener noreferrer" download>Installer</a>' +
+        '  <button id="verify-btn" class="details-btn w-full">Vérifier SHA256</button>' +
+        '</div>';
+    modalBody.innerHTML = html;
     modal.classList.add('open');
     document.body.classList.add('modal-open');
 
-    const verifyBtn = document.getElementById('verify-btn');
+    var verifyBtn = document.getElementById('verify-btn');
     if (verifyBtn) {
-        verifyBtn.addEventListener('click', () => {
+        verifyBtn.addEventListener('click', function() {
             window.open('securite-guide.html', '_blank');
         });
     }
@@ -109,49 +114,53 @@ function closeModal() {
 }
 
 // Init after DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     populate();
 
     // Modal controls
     if (modalClose) modalClose.addEventListener('click', closeModal);
     if (modal) {
-        modal.addEventListener('click', e => {
+        modal.addEventListener('click', function(e) {
             if (e.target === modal) closeModal();
         });
     }
 
     // Close modal with Escape key
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+    document.addEventListener('keydown', function(e) {
+        var key = e.key || e.keyCode;
+        if ((key === 'Escape' || key === 27) && modal && modal.classList.contains('open')) {
             closeModal();
         }
     });
 
     // Hamburger menu
-    const hamburger = document.querySelector('.hamburger');
-    const navLinksMobile = document.querySelector('.nav-links-mobile');
+    var hamburger = document.querySelector('.hamburger');
+    var navLinksMobile = document.querySelector('.nav-links-mobile');
     if (hamburger && navLinksMobile) {
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('open');
             navLinksMobile.classList.toggle('hidden');
         });
     }
 
     // Category filter
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const category = btn.dataset.category;
-            document.querySelectorAll('.app-card').forEach(card => {
-                card.style.display = category === 'all' || card.dataset.category === category ? '' : 'none';
-            });
+    var catBtns = document.querySelectorAll('.category-btn');
+    for (var c = 0; c < catBtns.length; c++) {
+        catBtns[c].addEventListener('click', function() {
+            for (var d = 0; d < catBtns.length; d++) catBtns[d].classList.remove('active');
+            this.classList.add('active');
+            var category = this.getAttribute('data-category');
+            var cards = document.querySelectorAll('.app-card');
+            for (var e = 0; e < cards.length; e++) {
+                var cardCat = cards[e].getAttribute('data-category');
+                cards[e].style.display = (category === 'all' || category === 'autres' || cardCat === category) ? '' : 'none';
+            }
             if (category === 'chimie') {
-                const chimieBtn = document.querySelector('.app-card[data-category="chimie"] .install-btn');
-                if (chimieBtn) {
-                    chimieBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                var chimieBtn = document.querySelector('.app-card[data-category="chimie"] .install-btn');
+                if (chimieBtn && chimieBtn.scrollIntoView) {
+                    try { chimieBtn.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (err) { chimieBtn.scrollIntoView(); }
                 }
             }
         });
-    });
+    }
 });
