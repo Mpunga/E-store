@@ -1,59 +1,241 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>À propos — E-Services</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Store - À propos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+         :root {
+            --primary: #005f99;
+            --secondary: #ce1126;
+            --accent: #f7c948;
+            --bg-light: #f0f4f8;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary) 0%, #007bff 100%);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .hero {
+            background: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-input,
+        .form-textarea {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .form-submit {
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .form-submit:hover {
+            background-color: #a50e1e;
+            transform: scale(1.05);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 24px;
+            height: 3px;
+            background-color: white;
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 1rem;
+            }
+            .navbar .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero {
+                padding: 2rem 1rem;
+            }
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header class="site-header">
-        <nav class="nav container" aria-label="Navigation">
-            <div class="brand">
-                <img src="assets/logo.png" alt="Logo E-Services" width="36" height="36" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,64,128,0.10);" />
-                <a href="index.html" class="brand-link">E-Services</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="assets/logo.png" alt="E-Store Logo" class="w-10 h-10 rounded-lg">
+                <a href="index.html" class="text-lg font-bold text-white">E-Store</a>
             </div>
-            <div class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="apropos.html" class="active">À propos</a>
+            <div class="nav-links hidden md:flex space-x-4">
+                <a href="index.html" class="text-white hover:text-accent">Accueil</a>
+                <a href="apropos.html" class="text-white hover:text-accent">À propos</a>
             </div>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="intro">
-            <h1>À propos de E-Services</h1>
-            <p>E-Services est une initiative éducative basée à Kinshasa (RDC). Notre mission : créer des applications pédagogiques de haute qualité, simples à utiliser, et adaptées au programme national.</p>
-            <p>
-                E-Services développe des outils numériques pour aider les élèves, étudiants et enseignants à réussir dans les matières scientifiques. Téléchargez gratuitement nos applications mobiles (E-Chimie, bientôt E-Physique, E-Math, E-Biologie…) et accédez à des
-                contenus interactifs, des quiz, des fiches et des calculateurs.
-            </p>
-            <p>Nous développons des outils comme <strong>E-Chimie</strong> (calculs, quiz, suivi) et prévoyons d'ajouter bientôt : E-Physique, E-Math, et des solutions pour les PME.</p>
-        </section>
-
-        <section class="values">
-            <h2>Nos valeurs</h2>
-            <ul>
-                <li>Accessibilité — des outils gratuits ou abordables pour tous</li>
-                <li>Qualité pédagogique — contenu aligné sur les programmes</li>
-                <li>Innovation — interfaces modernes et ludiques</li>
-                <li>Communauté — collaboration avec enseignants et élèves</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <h4>Contact</h4>
-                <p>Email: <a href="mailto:emmanuelmpunga.23@gmail.com">emmanuelmpunga.23@gmail.com</a></p>
-                <p>WhatsApp: <a href="https://wa.me/243998154323">0998 154 323</a></p>
+            <div class="hamburger md:hidden">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <div class="footer-bottom">© 2025 E-Services</div>
+        <div class="nav-links-mobile hidden flex-col bg-white shadow-md p-4 md:hidden">
+            <a href="index.html" class="text-gray-600 hover:text-primary py-2">Accueil</a>
+            <a href="apropos.html" class="text-gray-600 hover:text-primary py-2">À propos</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-4">À propos d'E-Store</h1>
+            <p class="text-lg text-gray-600 mb-6">
+                E-Store est la vitrine officielle des applications éducatives développées par E-Services, une initiative numérique basée à Kinshasa, RDC. Notre mission est de fournir des outils pédagogiques modernes, gratuits ou abordables, conçus pour accompagner les
+                élèves et enseignants dans leur préparation aux examens d’État (EXETAT). Nos applications, telles que E-Chimie et E-Physique, sont alignées sur le programme national (MEPST) et offrent des fonctionnalités interactives comme des quiz, des
+                calculatrices intelligentes et des fiches synthétiques. Avec E-Store, l’éducation devient plus accessible, mobile et connectée aux besoins des apprenants congolais.
+            </p>
+            <a href="index.html" class="install-btn">Découvrir nos apps</a>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form">
+        <h2 class="text-2xl font-bold mb-4 text-center">Contactez-nous</h2>
+        <form id="contact-form">
+            <input type="text" id="name" class="form-input" placeholder="Votre nom" required>
+            <input type="email" id="email" class="form-input" placeholder="Votre email" required>
+            <textarea id="message" class="form-textarea" rows="5" placeholder="Votre message" required></textarea>
+            <button type="submit" class="form-submit w-full">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-bold mb-4">E-Store</h3>
+                <p>Apps éducatives pour la RDC</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4">Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html" class="hover:text-accent">Accueil</a></li>
+                    <li><a href="apropos.html" class="hover:text-accent">À propos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4">Contact</h3>
+                <p>Email: <a href="mailto:emmanuelmpunga.23@gmail.com" class="hover:text-accent">emmanuelmpunga.23@gmail.com</a></p>
+                <p>WhatsApp: <a href="https://wa.me/+243998154323" class="hover:text-accent">+243 998154323</a></p>
+            </div>
+        </div>
+        <div class="mt-8 text-center text-sm">
+            © 2025 E-Services. Tous droits réservés.
+        </div>
     </footer>
+
+    <script>
+        // Hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinksMobile = document.querySelector('.nav-links-mobile');
+        if (hamburger && navLinksMobile) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navLinksMobile.classList.toggle('hidden');
+            });
+        }
+
+        // Form submission (client-side validation only)
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                if (name && email && message) {
+                    alert('Message envoyé ! Nous vous contacterons bientôt.');
+                    form.reset();
+                } else {
+                    alert('Veuillez remplir tous les champs.');
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
