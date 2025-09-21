@@ -427,6 +427,51 @@
     gap: 1rem
 }
 
+.app-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+    transition: transform .18s ease, box-shadow .18s
+}
+
+.app-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.09)
+}
+
+.app-thumb {
+    width: 92px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0
+}
+
+.app-meta {
+    flex: 1
+}
+
+.app-name {
+    margin: .05rem 0 .35rem;
+    font-size: 1.05rem;
+    color: var(--blue)
+}
+
+.app-desc {
+    color: var(--muted);
+    margin: 0 0 .8rem
+}
+
+.app-actions {
+    display: flex;
+    gap: .6rem;
+    align-items: center
+}
+
 
 /* hash table */
 
