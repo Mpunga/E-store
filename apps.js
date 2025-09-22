@@ -10,7 +10,7 @@ var apps = [{
         category: "chimie",
         desc: "Calculatrices (molarité, normalité, pH), quiz Exetat, tableau de bord de progression.",
         img: "assets/module2.jpg",
-        link: "https://drive.google.com/file/d/1MQXdyHK5x_BNEjeCzHx_KeRWZLM_7f-S/view?usp=sharing",
+        link: "https://drive.google.com/file/d/1Jf_7Ksuq9RhqxdEqhnoaBn39DXhhm237/view?usp=sharing",
         sha: "96:46:C0:74:FB:79:11:28:24:95:49:BD:47:8E:9A:97:A1:2D:3C:B9:9C:01:8B:8A:3B:EB:BD:3C:19:2C:9D:57",
         updated: "2025-09-01",
         rating: "4.8 (1.2k)"
@@ -21,8 +21,8 @@ var apps = [{
         category: "physique",
         desc: "Formulaires et calculs (mécanique, électricité, optique), conversions d’unités, quiz Exetat et fiches synthétiques.",
         img: "assets/logo physique 3.jpg",
-        link: "https://drive.google.com/file/d/1K3dbYg76sRK1H0FvsJRXMu1rb49aK3dC/view?usp=sharing",
-        sha: "",
+        link: "https://drive.google.com/file/d/1g1iHc5Ke5frE7rkzEtcAcdIqoyIpDuEs/view?usp=sharing",
+        sha: "96:46:C0:74:FB:79:11:28:24:95:49:BD:47:8E:9A:97:A1:2D:3C:B9:9C:01:8B:8A:3B:EB:BD:3C:19:2C:9D:57",
         updated: "2025-09-21",
         rating: "4.5 (980)"
     }
