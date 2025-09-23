@@ -10,8 +10,8 @@ var apps = [{
         category: "chimie",
         desc: "Calculatrices (molarité, normalité, pH), quiz Exetat, tableau de bord de progression.",
         img: "assets/module2.jpg",
-        link: "https://drive.google.com/file/d/1Jf_7Ksuq9RhqxdEqhnoaBn39DXhhm237/view?usp=sharing",
-        sha: "96:46:C0:74:FB:79:11:28:24:95:49:BD:47:8E:9A:97:A1:2D:3C:B9:9C:01:8B:8A:3B:EB:BD:3C:19:2C:9D:57",
+        link: "https://drive.google.com/file/d/1z4H42LBpTBlFW7ja8dzULZrkdnWud4aI/view?usp=sharing",
+        sha: "8E:E2:47:31:95:9F:80:62:A6:C8:E0:96:25:18:C1:D7:B0:2E:97:45:C4:92:A4:A8:27:51:F2:6B:77:2C:91:24",
         updated: "2025-09-01",
         rating: "4.8 (1.2k)"
     },
