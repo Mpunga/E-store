@@ -25,6 +25,17 @@ var apps = [{
         sha: "92:C0:FB:F0:DB:6E:76:8F:34:45:C9:2D:AB:48:AE:CE:AF:36:E4:C3:BF:37:E4:8B:98:A7:48:D6:C8:54:C5:D1",
         updated: "2025-09-21",
         rating: "4.5 (980)"
+    },
+     {
+        id: "e-math",
+        name: "E-Math",
+        category: "math",
+        desc: "Formulaires et calculs (algèbre, géométrie, statistiques), conversions d’unités, quiz Exetat et fiches synthétiques.",
+        img: "assets/logo.jpg",
+        link: "https://drive.google.com/file/d/1cgqKKOG4y9Tzwf9okG2ZHNKB_jPbXrcI/view?usp=sharing",
+        sha: "55:3B:73:8F:08:77:9D:3A:E9:72:85:91:9C:55:46:B2:CD:7B:E9:C9:E0:51:23:99:00:68:CD:6F:C8:31:CF:7D",
+        updated: "2025-09-30",
+        rating: "4.5 (980)"
     }
 ];
 
